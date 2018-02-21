@@ -6,7 +6,7 @@
   <head>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>all_functions module &#8212; all_functions  documentation</title>
+    <title>all_functions module &#8212; Assignment_6  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="maxdiff module" href="maxdiff.html" />
-    <link rel="prev" title="Welcome to all_functions’s documentation!" href="index.html" />
+    <link rel="next" title="test_all_functions module" href="test_all_functions.html" />
+    <link rel="prev" title="Welcome to Assignment_6’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,10 +33,13 @@
             
   <div class="section" id="module-all_functions">
 <span id="all-functions-module"></span><h1>all_functions module<a class="headerlink" href="#module-all_functions" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="all_functions.find_exceptions">
-<code class="descclassname">all_functions.</code><code class="descname">find_exceptions</code><span class="sig-paren">(</span><em>num_list</em><span class="sig-paren">)</span><a class="headerlink" href="#all_functions.find_exceptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>fxn checks and raises appropriate exceptions: type, value and import</p>
+<dl class="class">
+<dt id="all_functions.Numbers">
+<em class="property">class </em><code class="descclassname">all_functions.</code><code class="descname">Numbers</code><span class="sig-paren">(</span><em>num_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#all_functions.Numbers" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="all_functions.Numbers.find_min_max">
+<code class="descname">find_min_max</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#all_functions.Numbers.find_min_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function takes list of integers and returns min and max in a tuple</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -44,10 +47,14 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>num_list</strong> – list of integers</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><strong>TypeError</strong> – checks to make sure list is integers</li>
-<li><strong>ImportError</strong> – checks to make sure correct files are imported</li>
-<li><strong>ValueError</strong> – makes sure the integers have real values</li>
+<tr class="field-even field"><th class="field-name" colspan="2">Returns max_min:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">a tuple containing the max and min of a list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>TypeError</strong> – checks for incorrect data types in list</li>
+<li><strong>ValueError</strong> – checks for improper values that cause errors</li>
+<li><strong>ImportError</strong> – checks for correct importation</li>
 </ul>
 </td>
 </tr>
@@ -55,61 +62,64 @@
 </table>
 </dd></dl>
 
-<dl class="function">
-<dt id="all_functions.find_min_max">
-<code class="descclassname">all_functions.</code><code class="descname">find_min_max</code><span class="sig-paren">(</span><em>num_list</em><span class="sig-paren">)</span><a class="headerlink" href="#all_functions.find_min_max" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function takes list of integers and returns min and max in a tuple</p>
+<dl class="method">
+<dt id="all_functions.Numbers.maxdiff">
+<code class="descname">maxdiff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#all_functions.Numbers.maxdiff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function takes a list of integers and returns the maximum difference between two adjacent numbers</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>num_list</strong> – list of integers</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>num_list</strong> – list of integers</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Returns max_min:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">a tuple containing the max and min of a list</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Returns maxdiff:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">maximum difference</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>TypeError</strong> – checks for incorrect data types in list</li>
+<li><strong>ValueError</strong> – checks for imporper/unexpected values in list</li>
+<li><strong>ImportError</strong> – checks for correct importation</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="all_functions.Numbers.sum_list">
+<code class="descname">sum_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#all_functions.Numbers.sum_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function takes list of integers and returns the sum of the list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>num_list</strong> – list of integers</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Returns sum<a href="#id1"><span class="problematic" id="id2">sum_</span></a>:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">the sum of the list of integers</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>TypeError</strong> – checks for incorrect data types in list</li>
+<li><strong>ValueError</strong> – checks for improper values that cause errors</li>
+<li><strong>ImportError</strong> – checks for correct importation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
 <dt id="all_functions.main">
 <code class="descclassname">all_functions.</code><code class="descname">main</code><span class="sig-paren">(</span><em>num_list</em><span class="sig-paren">)</span><a class="headerlink" href="#all_functions.main" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="function">
-<dt id="all_functions.maxdiff">
-<code class="descclassname">all_functions.</code><code class="descname">maxdiff</code><span class="sig-paren">(</span><em>num_list</em><span class="sig-paren">)</span><a class="headerlink" href="#all_functions.maxdiff" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function takes a list of integers and returns the maximum difference between two adjacent numbers</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>num_list</strong> – list of integers</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Returns maxdiff:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">maximum difference</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="all_functions.sum_list">
-<code class="descclassname">all_functions.</code><code class="descname">sum_list</code><span class="sig-paren">(</span><em>num_list</em><span class="sig-paren">)</span><a class="headerlink" href="#all_functions.sum_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function takes list of integers and returns the sum of the list</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>num_list</strong> – list of integers</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Returns sum<a href="#id1"><span class="problematic" id="id2">sum_</span></a>:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">the sum of the list of integers</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
 
 </div>
 
@@ -122,8 +132,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to all_functions’s documentation!</a></li>
-      <li>Next: <a href="maxdiff.html" title="next chapter">maxdiff module</a></li>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Assignment_6’s documentation!</a></li>
+      <li>Next: <a href="test_all_functions.html" title="next chapter">test_all_functions module</a></li>
   </ul></li>
 </ul>
 </div>
@@ -151,7 +161,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, Deepti.
+      &copy;2018, Katie Carroll.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>

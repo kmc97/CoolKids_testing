@@ -1,82 +1,97 @@
 import numpy as np
 import logging
 
+
 logging.basicConfig(filename='logging.txt', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y &I:%M:%S %p', level=logging.DEBUG)
 
+class Numbers:
+    def __init__ (self, num_list= None):
+        self.num_list = num_list
 
-def sum_list(num_list):
-    """Function takes list of integers and returns the sum of the list
+    def sum_list(self):
+        """Function takes list of integers and returns the sum of the list
 
-       :param num_list: list of integers
-       :returns sum_: the sum of the list of integers
-   
-    """
-    sum_ = np.sum(num_list)
-    return sum_
+        :param num_list: list of integers
+        :returns sum_: the sum of the list of integers
+        :raises TypeError: checks for incorrect data types in list
+        :raises ValueError: checks for improper values that cause errors
+        :raises ImportError: checks for correct importation
+        """
+        
+        logging.info('INFO: starting sum_list function')
 
+        try:
+            sum_ = np.sum(self.num_list)
+            return sum_
+        except TypeError:
+            raise TypeError
+            logging.debug('DEBUG: check data type of list in sum_list')
+        except ValueError:
+            raise ValueError
+            logging.debug('DEBUG: check values of list, correct data type but unexpected value')
+        except ImportError:
+            raise ImportError
+            logging.debug('DEBUG: issue importing files make sure virtual env activated')
 
-def find_min_max(num_list):
-    """Function takes list of integers and returns min and max in a tuple
+    def find_min_max(self):
+        """Function takes list of integers and returns min and max in a tuple
 
-    :param num_list: list of integers
-    :returns max_min: a tuple containing the max and min of a list
+        :param num_list: list of integers
+        :returns max_min: a tuple containing the max and min of a list
+        :raises TypeError: checks for incorrect data types in list
+        :raises ValueError: checks for improper values that cause errors
+        :raises ImportError: checks for correct importation
+        """ 
+        
+        logging.info('Info: starting find_min_max function')
 
-    """ 
-    min_ = np.min(num_list)
-    max_ = np.max(num_list)
-    max_min = (min_, max_)
+        try:
+            min_ = np.min(self.num_list)
+            max_ = np.max(self.num_list)
+            min_max = (min_, max_)
+            return min_max
+        except TypeError:
+            raise TypeError
+            logging.debug('Debug: check data type of list')
+        except ValueError:
+            raise ValueError
+            logging.debug('DEBUG: check values of list, unexpected value')
+        except ImportError:
+            raise ImportError
+            logging.debug('DEBUG: issue importing files, make sure virtual env turned on')
+       
+    def maxdiff(self):
+        """Function takes a list of integers and returns the maximum difference between two adjacent numbers
 
-    return max_min
+        :param num_list: list of integers
+        :returns maxdiff: maximum difference
+        :raises TypeError: checks for incorrect data types in list
+        :raises ValueError: checks for imporper/unexpected values in list
+        :raises ImportError: checks for correct importation 
+        """
 
+        logging.info('Info: starting max_diff function')
 
-def maxdiff(num_list):
-    """Function takes a list of integers and returns the maximum difference between two adjacent numbers
-
-    :param num_list: list of integers
-    :returns maxdiff: maximum difference 
-    """
-
-    diff = np.diff(num_list)
-    maxdiff = diff.max()
-
-    return maxdiff
-
-
-def find_exceptions(num_list):
-
-    """ fxn checks and raises appropriate exceptions: type, value and import
-
-    :param num_list: list of integers
-    :raises TypeError: checks to make sure list is integers
-    :raises ImportError: checks to make sure correct files are imported
-    :raises ValueError: makes sure the integers have real values
-
-    """
-    try:
-        find_min_max([num_list])
-        maxdiff([num_list])
-        sum_list([num_list])
-    except TypeError:
-        logging.debug('DEBUG: Try checking the data type of number_list')
-        logging.warning('WARNING: Your Program may blow up from the wrong data type')
-        raise TypeError
-
-    except ImportError:
-        logging.debug('DEBUG: Error in input files')
-        logging.warning('WARNING: You have tried to import something that DNE')
-        raise ImportError
-
-    except ValueError:
-        logging.debug('DEBUG: There is a value error, make sure the integer is real')
-        logging.warning('Warning: there is a value error, make sure the integer is real')
-        raise ValueError
+        try:
+            diff = np.diff(self.num_list)
+            maxdiff = diff.max()
+            return maxdiff
+        except TypeError:
+            raise TypeError
+            logging.debug('Debug: check data type of list')
+        except ValueError:
+            raise ValueError
+            logging.debug('DEBUG: check values of list, unexpected value')
+        except ImportError:
+            raise ImportError
+            logging.debug('DEBUG: issue importing files')
+  
 
 def main(num_list):
-    logging.info('INFO: Program Started')
-    find_exceptions(num_list)
-    sum_ =sum_list(num_list)
-    max_min = find_min_max(num_list)
-    max_diff= maxdiff(num_list)
-    logging.info('INFO: Program Ended')
+    x = Numbers(num_list)
+    sum_ = x.sum_list()
+    min_max = x.find_min_max()
+    maxdiff= x.maxdiff()
+    print(sum_, min_max, maxdiff)
 
-    return sum_, max_min, max_diff
+main([1,2,3])
